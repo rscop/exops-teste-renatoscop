@@ -39,7 +39,7 @@ def post():
 
 	content = request.get_json()
 
-	return(content)
+	return(content) 
 
 if __name__ == '__main__':
 
