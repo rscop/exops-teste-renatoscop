@@ -37,9 +37,9 @@ def get():
 @app.route('/gitHub', methods=['POST'])
 def post():
 
-	response = request.json()
+	content = request.get_json()
 
-	return(response)
+	return(content)
 
 if __name__ == '__main__':
 
