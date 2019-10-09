@@ -4,7 +4,10 @@ import os
 # Validate Push Hook
 def validatePush(commit):
 
-	pos = commit.index('-')
+	try:
+		pos = commit.index('-')
+	except:
+		pos = 0
 
 	validations = checkVariables(commit[pos:])
 
