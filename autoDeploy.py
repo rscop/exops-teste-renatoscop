@@ -23,6 +23,13 @@ def checkVariables(vars):
 		"changeBranche": False
 	}
 
+	# Change branche for -cB Tag
+	if vars.count('-cB')>0:
+
+		response["changeBranche"] = True
+
+		changeBranche(vars[vars.index('-cB')+4:].split()[0])
+
 	# Stash local changes for -iL Tag
 	if vars.count('-iL')>0:
 
@@ -40,13 +47,6 @@ def checkVariables(vars):
 	else:
 
 		deployCode()
-
-	# Change branche for -cB Tag
-	if vars.count('-cB')>0:
-
-		response["changeBranche"] = True
-
-		changeBranche(vars[vars.index('-cB')+4:].split()[0])
 
 	return response
 
