@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-# Funcao que le arquivo de configuraçoes
+# Funcao que le arquivo de configuracoes
 def get_ConfigFile(inifile, section):
 	c = configparser.ConfigParser()
 	dataset = c.read(inifile)
@@ -18,7 +18,7 @@ def get_ConfigFile(inifile, section):
 	except Exception:
 		raise e
 
-	# Verifca as keys do arquivo de configuraçao
+	# Verifca as keys do arquivo de configuracao
 	for key in c[section]:
 		if len(c[section][key]) == 0:
 			fatal("fatal: %s: could not find %s string" % (inifile, key), 1)
