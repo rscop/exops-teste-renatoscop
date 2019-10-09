@@ -3,6 +3,7 @@ from flask import Flask, abort, request, jsonify, g, url_for
 import sys
 import configparser
 import os
+from autoDeploy import *
 
 app = Flask(__name__)
 
@@ -38,14 +39,25 @@ def get():
 def post():
 
 	content = request.get_json()
+	branche = content["ref"].split('/')[2]
+	commit = content["head_commit"]["message"]
+	if branche == actualBranche:
 
-	return(content) 
+		status = validatePush(commit)
+		
+	response = {
+		"branche": branche,
+		"message": commit,
+		"status": status
+	}
+	return(response) 
 
 if __name__ == '__main__':
 
 	config = get_ConfigFile(sys.argv[0]+'.cfg', 'production')
 	ip = config['listen_ip']
 	port = config['listen_port']
+	actualBranche = config['actualBranche']
 
 	app.run(host=ip, port=port, debug=False)
 	
