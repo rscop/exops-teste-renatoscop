@@ -43,7 +43,7 @@ def post():
 	commit = content["head_commit"]["message"]
 
 	status = validatePush(commit)
-	
+
 	response = {
 		"branche": branche,
 		"message": commit,
