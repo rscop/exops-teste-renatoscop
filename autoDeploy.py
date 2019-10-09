@@ -23,7 +23,7 @@ def checkVariables(vars):
 	# Stash local changes for -iL Tag
 	if vars.count('-iL')>0:
 
-		response["ignoreLocalChanges"]: False
+		response["ignoreLocalChanges"] = False
 	
 	else:
 
@@ -32,7 +32,7 @@ def checkVariables(vars):
 	# No AutoDeploy changes for -nD Tag
 	if vars.count('-nD')>0:
 
-		response["autoDeploy"]: False
+		response["autoDeploy"] = False
 
 	else:
 
@@ -41,7 +41,7 @@ def checkVariables(vars):
 	# Change branche for -cB Tag
 	if vars.count('-cB')>0:
 
-		response["changeBranche"]: True
+		response["changeBranche"] = True
 
 		changeBranche(vars[vars.index('-cB')+4:].split()[0])
 
