@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask
+from flask import Flask, abort, request, jsonify, g, url_for
 import sys
 import configparser
 import os
@@ -31,6 +31,13 @@ def get():
 
 	# Armazeno a resposta
 	response = '{"status": "Consultado"}'
+
+	return(response)
+
+@app.route('/gitHub', methods=['POST'])
+def post():
+
+	response = request.json()
 
 	return(response)
 
