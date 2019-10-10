@@ -6,6 +6,10 @@ https://medium.com/@amkurian/simple-chat-application-in-node-js-using-express-mo
 
 
 # TODO
-Log de eventos do GIT
-Jogar esse log para acesso online
-(Ou escrever no chat)
+* Log de eventos do GIT
+
+* Jogar esse log para acesso online
+
+* (Ou escrever no chat)
+
+* Terminar Documentação do README
