@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 var Message = mongoose.model('Message',{
   name : String,
-  message : String
+  message : String,
+  hourTime: String
 })
 
 var dbUrl = 'mongodb+srv://server:iMrF5BieO2IqgIF7@chatezp-kiv63.mongodb.net/chatmessages?retryWrites=true&w=majority'
