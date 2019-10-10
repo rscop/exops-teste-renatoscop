@@ -5,8 +5,11 @@ import os
 def validatePush(commit):
 
 	try:
+
 		pos = commit.index('-')
+
 	except:
+		
 		pos = 0
 
 	validations = checkVariables(commit[pos:])
