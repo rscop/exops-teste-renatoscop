@@ -17,7 +17,7 @@ def validatePush(commit):
 def checkVariables(vars):
 
 	response = {
-
+		# Default values for validations
 		"ignoreLocalChanges": True,
 		"autoDeploy": True,
 		"changeBranche": False

@@ -7,7 +7,7 @@ from autoDeploy import *
 
 app = Flask(__name__)
 
-# Funcao que le arquivo de configuracoes
+# Read configurationFile
 def get_ConfigFile(inifile, section):
 	c = configparser.ConfigParser()
 	dataset = c.read(inifile)
@@ -19,22 +19,23 @@ def get_ConfigFile(inifile, section):
 	except Exception:
 		raise e
 
-	# Verifca as keys do arquivo de configuracao
+	# Verify keys in configuration file
 	for key in c[section]:
 		if len(c[section][key]) == 0:
 			fatal("fatal: %s: could not find %s string" % (inifile, key), 1)
 
 	return c[section]
 
-# Metodo para consulta dos dados
+# Method for data query (Verify API Integrity)
 @app.route('/gitHub', methods=['GET'])
 def get():
 
-	# Armazeno a resposta
+	# Response if OK
 	response = '{"status": "Consultado"}'
 
 	return(response)
 
+# GH Hook configured for acess this method
 @app.route('/gitHub', methods=['POST'])
 def post():
 
@@ -42,8 +43,10 @@ def post():
 	branche = content["ref"].split('/')[2]
 	commit = content["head_commit"]["message"]
 
+	# Validate received commit/push
 	status = validatePush(commit)
 
+	# Response for GH Console
 	response = {
 		"branche": branche,
 		"commit_message": commit,

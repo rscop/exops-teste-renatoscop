@@ -21,23 +21,12 @@
         <br>
         <textarea id = "message" class="form-control" placeholder="Your Message Here"></textarea>
         <br>
-        <button id="send" class="btn btn-success">Send</button>
+        <button id="send" class="btn btn-success">Enviar</button>
     </div>
     <div id="messages">
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-      $('#messageTable').DataTable({
-        "paging": true,
-        "pagingType": "simple",
-        "ordering": false,
-        "searching": false
-
-      });
-      $('.dataTables_length').addClass('bs-select');
-    });
-
    var socket = io();
     $(() => {
         $("#send").click(()=>{
