@@ -46,7 +46,7 @@ def post():
 
 	response = {
 		"branche": branche,
-		"message": commit,
+		"commit_message": commit,
 		"status": status
 	}
 	return(response) 
