@@ -32,7 +32,7 @@ Na parte de eventos, vamos usar apenas alguns:
 Após a configuração, o GH irá começar os dados para a URL concedia acima, e tudo pode ser acompanhando no log ao fim da página.
 
 # Comandos:
- - -cB <name>: Muda de Branch
+ - -cB [branche_name] : Muda de Branch
  - -iL : Faz com que não ignore as alterações locals (Por padrão será ignorado)
  - -nD : Faz com que não dê deploy automático (Por padrão fará)
 
