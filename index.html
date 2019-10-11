@@ -57,9 +57,7 @@
         console.log(message.message);
         var data = new Date();
         var horaMsg = (data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds() + ' ' + data.getUTCDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear());
-        if (message.message.length < 50) {
-          var response = message.name + " digitou uma string de " + message.message.length + ' caracteres.';
-        } else if (message.message.substr(0,3) == 'fib') {
+        if (message.message.substr(0,3) == 'fib') {
           var response = '0, 1';
           var first = 0;
           var second = 1;
@@ -74,7 +72,8 @@
             first = second;
             second = third;
           }
-        }
+        } else if (message.message.length < 50) {
+          var response = message.name + " digitou uma string de " + message.message.length + ' caracteres.';
         if (response){
           $.post('http://tisp.club:3000/messages', {name: "Automatic", message: response, hourTime: horaMsg})
         }      
