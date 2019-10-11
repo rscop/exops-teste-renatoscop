@@ -49,8 +49,9 @@ def checkVariables(vars):
 
 	else:
 
-		deployCode()
+		resp = deployCode()
 
+	response["Respose"] = resp
 	return response
 
 def stashChanges():
@@ -61,9 +62,9 @@ def stashChanges():
 
 def deployCode():
 
-	os.system("sudo git pull")
+	resp = os.system("sudo git pull")
 
-	return
+	return resp
 
 def changeBranch(newBranch):
 
