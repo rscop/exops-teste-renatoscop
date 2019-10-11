@@ -3,7 +3,7 @@ from flask import Flask, abort, request, jsonify, g, url_for
 import sys
 import configparser
 import os
-from autoDeploy import validatePush
+from autoDeploy import validatePush, rebaseBranchs
 
 app = Flask(__name__)
 
@@ -50,19 +50,37 @@ def post():
 
 	content = request.get_json()
 
-	branche = content["ref"].split('/')[2]
+	try:
+		branch = content["ref"].split('/')[2]
+		eventType = "push"
+	except:
+		branch = content["ref"]
+		eventType = content["ref_type"]
 
-	commit = content["head_commit"]["message"]
+		if eventType == "branch":
+			rebaseBranchs()
 
-	# Validate received commit/push
-	status = validatePush(commit)
 
-	# Response for GH Console
-	response = {
-		"branche": branche,
-		"commit_message": commit,
-		"status": status
-	}
+	if eventType == "push":
+
+		commit = content["head_commit"]["message"]
+
+		# Validate received commit/push
+		status = validatePush(commit)
+
+		# Response for GH Console
+		response = {
+			"branch": branch,
+			"commit_message": commit,
+			"status": status
+		}
+		
+	elif eventType == "branch":
+
+		response = {
+			"branch": branch,
+			"sstatus": "Rebased branchs"
+		}
 	
 	return(response) 
 

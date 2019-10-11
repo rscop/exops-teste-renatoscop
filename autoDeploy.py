@@ -23,15 +23,15 @@ def checkVariables(vars):
 		# Default values for validations
 		"ignoreLocalChanges": True,
 		"autoDeploy": True,
-		"changeBranche": False
+		"changeBranch": False
 	}
 
-	# Change branche for -cB Tag
+	# Change branch for -cB Tag
 	if vars.count('-cB')>0:
 
-		response["changeBranche"] = True
+		response["changeBranch"] = True
 
-		changeBranche(vars[vars.index('-cB')+4:].split()[0])
+		changeBranch(vars[vars.index('-cB')+4:].split()[0])
 
 	# Stash local changes for -iL Tag
 	if vars.count('-iL')>0:
@@ -65,8 +65,14 @@ def deployCode():
 
 	return
 
-def changeBranche(newBranche):
+def changeBranch(newBranch):
 
-	os.system('sudo git checkout %s'%newBranche)
+	os.system('sudo git checkout %s'%newBranch)
+
+	return
+
+def rebaseBranchs():
+
+	os.system('sudo git rebase')
 
 	return
