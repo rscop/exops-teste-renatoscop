@@ -115,7 +115,7 @@ def post():
 
 		response = {
 			"branch": branch,
-			"sstatus": "Rebased branchs"
+			"status": "Rebased branchs"
 		}
 	
 	logit('Event OK, sending response to GH')
