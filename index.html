@@ -74,6 +74,7 @@
           }
         } else if (message.message.length < 50) {
           var response = message.name + " digitou uma string de " + message.message.length + ' caracteres.';
+        }
         if (response){
           $.post('http://tisp.club:3000/messages', {name: "Automatic", message: response, hourTime: horaMsg})
         }      
