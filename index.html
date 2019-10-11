@@ -54,11 +54,30 @@
 
     function sendMessage(message){
       $.when($.post('http://tisp.club:3000/messages', message)).done(function(){
-        if (message.message == 'ABC') {
-          var data = new Date()
-          var horaMsg = (data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds() + ' ' + data.getDay() + '/' + data.getMonth() + '/' + data.getFullYear()) 
-          $.post('http://tisp.club:3000/messages', {name: "Automatic", message: "Voce digitou ABC", hourTime: horaMsg})
+        console.log(message.message);
+        var data = new Date();
+        var horaMsg = (data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds() + ' ' + data.getUTCDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear());
+        if (message.message.length < 50) {
+          var response = message.name + " digitou uma string de " + message.message.length + ' caracteres.';
+        } else if (message.message.substr(0,3) == 'fib') {
+          var response = '0, 1';
+          var first = 0;
+          var second = 1;
+          var third = 1;
+          var count = 45;
+         if (parseInt(message.message.substr(4)) < 45) {
+           count = parseInt(message.message.substr(4))
+         };
+          for (i = 0; i < count-2; i++) {
+            var third = first+second;
+            response += ', '+third;
+            first = second;
+            second = third;
+          }
         }
+        if (response){
+          $.post('http://tisp.club:3000/messages', {name: "Automatic", message: response, hourTime: horaMsg})
+        }      
       })
     }
 </script>
