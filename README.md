@@ -31,13 +31,13 @@ Na parte de eventos, vamos usar apenas alguns:
 
 Após a configuração, o GH irá começar os dados para a URL concedia acima, e tudo pode ser acompanhando no log ao fim da página.
 
-# Comandos:
+# Parâmetros de Commit:
  - -cB [branch_name] : Muda de Branch
  - -iL : Faz com que não ignore as alterações locals (Por padrão será ignorado)
  - -nD : Faz com que não dê deploy automático (Por padrão fará)
 
 # Usabilidade:
-Após realizar as alterações necessárias e enviar o commit para a base é possível um dos 3 parâmetros acima citados, caso nenhum seja passado ele irá assumir as instruções padrões.
+Após realizar as alterações necessárias e enviar o commit para a base é possível usar um dos 3 parâmetros acima citados, caso nenhum seja passado ele irá assumir as instruções padrões.
 
 Exemplo: 
 
