@@ -73,8 +73,6 @@ def changeBranch(newBranch):
 
 def rebaseBranchs():
 
-	os.system('sudo git fetch')
-	
-	os.system('sudo git rebase')
+	os.system('sudo git fetch && sudo git rebase')
 
 	return
