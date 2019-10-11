@@ -19,13 +19,20 @@ def logStart():
 def setuplog(lf,lfBkpCnt,logLevel):
 
 	global gtwlogger
+
 	gtwlogger = logging.getLogger('GTW_LOG')
+
 	gtwlogger.setLevel(logging.DEBUG)
+
 	formatter = logging.Formatter('%(asctime)s-%(message)s')
+
 	# Add the log message handler to the logger
 	handler = logging.handlers.TimedRotatingFileHandler(lf, when='midnight', interval=1, backupCount=lfBkpCnt)
+
 	handler.setFormatter(formatter)
+
 	gtwlogger.addHandler(handler)
+	
 	logStart()
 
 def logit(m):
