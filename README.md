@@ -16,10 +16,17 @@ Após isso é necessário a configuração no ambiente do próprio GitHub.
 Acesse as configurações do seu projeto, vá em Webhooks e crie um novo:
 ![enter image description here](https://image.prntscr.com/image/x1RhSuRcS4S4ESW5ye-LNQ.png)
 É necessário configurar alguns campos como:
+
 Payload URL: Link do seu WebService
+
 Content type: json para esse caso
+
 Secret: (Deixaremos em branco, mas pode ser implementado algum tipo de segurança)
+
 Na parte de eventos, vamos usar apenas alguns:
-Commit comments, Branch or tag creation e Pushes.
+
+ - Commit comments 
+ - Branch or tag creation 
+ - Pushes.
 
 Após a configuração, o GH irá começar os dados para a URL concedia acima, e tudo pode ser acompanhando no log ao fim da página.
