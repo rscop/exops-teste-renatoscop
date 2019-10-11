@@ -50,7 +50,11 @@ def post():
 
 	content = request.get_json()
 
-	branche = content["ref"].split('/')[2]
+	try:
+		branche = content["ref"].split('/')[2]
+	except:
+		eventType = content["ref_type"]
+		branche = content["ref"]
 
 	commit = content["head_commit"]["message"]
 
