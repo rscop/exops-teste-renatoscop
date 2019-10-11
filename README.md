@@ -1,3 +1,4 @@
+
 # GIT Autodeploy for EZOps
 #### Python3
 
@@ -29,6 +30,21 @@ Na parte de eventos, vamos usar apenas alguns:
  - Pushes.
 
 Após a configuração, o GH irá começar os dados para a URL concedia acima, e tudo pode ser acompanhando no log ao fim da página.
+
+# Comandos:
+ - -cB <name>: Muda de Branch
+ - -iL : Faz com que não ignore as alterações locals (Por padrão será ignorado)
+ - -nD : Faz com que não dê deploy automático (Por padrão fará)
+
+# Usabilidade:
+Após realizar as alterações necessárias e enviar o commit para a base é possível um dos 3 parâmetros acima citados, caso nenhum seja passado ele irá assumir as instruções padrões.
+
+Exemplo: 
+
+'commit name -nD': Irá apenas enviar as modificações para nuvem, sem fazer alterações na base de produção.
+
+# OBS:
+Ao criar um branch novo, antés de fazer qualquer alteração ou commit é preciso salvar o mesmo para enviar ao github.
 
 ### Bônus:
 Para melhor análise de logs, foi usando um pacote para exibição do mesmo na web:
