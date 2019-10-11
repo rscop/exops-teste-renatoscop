@@ -17,11 +17,10 @@ Acesse as configurações do seu projeto, vá em Webhooks e crie um novo:
 ![enter image description here](https://image.prntscr.com/image/x1RhSuRcS4S4ESW5ye-LNQ.png)
 É necessário configurar alguns campos como:
 
-Payload URL: Link do seu WebService
-
-Content type: json para esse caso
-
-Secret: (Deixaremos em branco, mas pode ser implementado algum tipo de segurança)
+ - Payload URL: Link do seu WebService 
+ - Content type: json para esse caso
+ - Secret: (Deixaremos em branco, mas pode ser implementado algum tipo
+   de segurança)
 
 Na parte de eventos, vamos usar apenas alguns:
 
