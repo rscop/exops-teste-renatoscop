@@ -57,3 +57,9 @@ sudo frontail -p 3010 autodeploy.log
 
 Vale lembrar que a porta 3010 foi aberta previamente.
 O arquivo "autodeploy.log" é o nome padrão, podendo ser alterado casa haja necessidade.
+
+# Serviço atualmente rodando nas seguintes URL's:
+
+http://tisp.club:3000/ - Chat
+
+http://tisp.club:3010/ - Log do GH
