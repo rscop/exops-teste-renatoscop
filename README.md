@@ -1,11 +1,11 @@
 # GIT Autodeploy for EZOps
 #### Python3
-PIP3 
 
 # Como usar?
 
 ### Requisitos
  - Repositório GitHub e conta com acesso ao mesmo
+ - Conta previamente configurada ja no servidor e na pasta
  - Servidor linux (Feito em ubuntu 18.04)
 
 ### Como funciona?
@@ -29,3 +29,15 @@ Na parte de eventos, vamos usar apenas alguns:
  - Pushes.
 
 Após a configuração, o GH irá começar os dados para a URL concedia acima, e tudo pode ser acompanhando no log ao fim da página.
+
+### Bônus:
+Para melhor análise de logs, foi usando um pacote para exibição do mesmo na web:
+
+##### Instalar a biblioteca:
+sudo npm i frontail -g
+
+##### Rodar o serviço na pasta onde está salva o log:
+sudo frontail -p 3010 autodeploy.log
+
+Vale lembrar que a porta 3010 foi aberta previamente.
+O arquivo "autodeploy.log" é o nome padrão, podendo ser alterado casa haja necessidade.
