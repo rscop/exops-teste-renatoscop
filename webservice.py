@@ -130,6 +130,56 @@ def post():
 
 	return(response) 
 
+@app.route('/bitBucket', methods=['POST'])
+def postbB():
+
+	logit('Receiving POST on /bitBucket')
+	content = request.get_json()
+	logit('Hook from bitBucket')
+
+	try:
+		branch = content["push"]["changes"][0]["old"]["links"]["html"]["href"].split('/')[6]
+		eventType = "push"
+		logit('Event Push')
+
+	except:
+		# branch = content["ref"]
+		# eventType = content["ref_type"]
+
+		if eventType == "branch":
+			logit('Event New Branch')
+			rebaseBranchs()
+
+
+	if eventType == "push":
+		logit('Going to Push')
+
+		commit = content["push"]["changes"][0]["old"]["target"]["message"]
+
+		# Validate received commit/push
+		status = validatePush(commit)
+
+		# Response for GH Console
+		response = {
+			"branch": branch,
+			"commit_message": commit,
+			"status": status
+		}
+		
+	elif eventType == "branch":
+		logit('Going to Branch')
+
+		response = {
+			"branch": branch,
+			"status": "Rebased branchs"
+		}
+	
+	logit('Event OK, sending response to GH')
+	logit(response)
+
+	return(response) 
+
+
 if __name__ == '__main__':
 
 	config = get_ConfigFile(sys.argv[0]+'.cfg', 'production')
